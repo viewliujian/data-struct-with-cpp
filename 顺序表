@@ -4,3 +4,11 @@
   1）逻辑上相邻，对应的物理地址相邻。
   2）任意元素均可随机存取。
 3.结点设计
+typedef int ElemType;
+#define LIST_SIZE 1024
+typedef struct 
+{
+  ElemType data[LIST_SIZE];
+  int last; //指向最后结点的位置
+}SequenList;
+SequenList *LPtr;
