@@ -3,6 +3,7 @@
 2.存储特点
   1）逻辑上相邻，对应的物理地址相邻。
   2）任意元素均可随机存取。
+  
 3.结点设计
 typedef int ElemType;
 #define LIST_SIZE 1024
@@ -12,3 +13,37 @@ typedef struct
   int last; //指向最后结点的位置
 }SequenList;
 SequenList *LPtr;
+
+4.运算/操作
+  1）初始化
+  2）求长度
+  3）取元素
+  4）定位
+  5）插入
+  6）删除
+  7）遍历
+  
+5.操作的程序实现
+  1）插入
+  /*===============================================
+  函数功能：顺序表运算————元素的插入
+  函数输入：顺序表地址，插入值，插入地址
+  函数输出：完成标志———— 0：异常， 1：正常
+  ================================================*/
+  int Insert_SqList(SeqList *LPtr, ElemType x, int k)
+  {
+    if(LPtr->last >= LIST_SIZE - 1)
+      return FALSE;
+    else if(k < 0 || k > LPtr->last + 1)
+      return FALSE;
+    else
+    {
+      for(int j = LPtr->last; j >= k; j--)
+      {
+        LPtr->data[j + 1] = LPtr->data[j];
+      }
+      LPtr->data[k] = x;
+      Lptr->last = LPtr->last + 1;
+    }
+    return TRUE;
+}
