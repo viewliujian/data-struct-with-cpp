@@ -5,31 +5,29 @@
 3. 基数排序：复杂度是：O(d*n)
 
 二、 Sorting Algorithm
-1. 直接插入排序/insertion sort
+1. 直接插入排序/insertion_sort ∈插入排序
 =================================
 函数功能：直接插入排序
 函数输入：数组首地址*a, 数组长度n
 函数输出：无
 =================================
+算法效率：O(n^2)
 void InsertSort(int *a, n)
 {
-  int i;
-  int j;
-  
   int temp; //作为哨兵，占用一个额外空间
-  for(i = 1; i < n; ++i)
-  {
-    if(a[i] < a[i-1])
-    {
-      temp = a[i];//哨兵
-      for(j = i - 1; temp < a[j] && j >=0; --j)
-      {
-        a[j+1] = a[j]
-      }
-    
-    }
   
+  for(int i = 1; i < n; ++i)
+  {
+    if(a[i] < a[i-1])//如果后一个前一个小
+    {
+      temp = a[i];//哨兵  //暂存后面一个元素
+      for(int j = i - 1; temp < a[j] && j >=0; --j)//循环，直到第一个，或者到达指定位置
+      {
+        a[j+1] = a[j];//将比较过的元素向后移动一位
+      }
+      a[j+1] = temp;
+    }
   }
-
-
 }
+
+2. 希尔排序/Shell_Sort ∈插入排序
